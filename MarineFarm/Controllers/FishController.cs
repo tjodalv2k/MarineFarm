@@ -39,10 +39,26 @@ namespace MarineFarm.Controllers
             return fish;
         }
 
+        // GET: api/Fish/5/
+        [HttpGet("{id}/movements")]
+        public async Task<ActionResult<IEnumerable<Movement>>> GetMovement(int id)
+        {
+            var movements = await _context.Movement.Where(m => m.FishId == id).ToListAsync();
+
+            if (movements == null)
+            {
+                return NotFound();
+            }
+
+            return movements;
+        }
+
         [HttpPut("{fishId}/{tankId}")]
         public async Task<IActionResult> MoveFish(int fishId, int tankId)
         {
             var fish = await _context.Fish.FirstOrDefaultAsync(f => f.FishId == fishId);
+
+            _context.Movement.Add(new Movement { FishId = fishId, TankIdTo = tankId, TankIdFrom = fish.TankId});
 
             fish.TankId = tankId;
 
