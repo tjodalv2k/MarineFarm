@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MarineFarm.Models
 {
@@ -10,7 +10,8 @@ namespace MarineFarm.Models
 
         public string Weight { get; set; }
 
-        public Tank Tank { get; set; }
+        [ForeignKey("Tank")]
+        public int TankId { get; set; }
 
     }
 }

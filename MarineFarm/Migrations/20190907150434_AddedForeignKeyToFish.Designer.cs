@@ -3,14 +3,16 @@ using MarineFarm.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MarineFarm.Migrations
 {
     [DbContext(typeof(MarineContext))]
-    partial class MarineContextModelSnapshot : ModelSnapshot
+    [Migration("20190907150434_AddedForeignKeyToFish")]
+    partial class AddedForeignKeyToFish
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
