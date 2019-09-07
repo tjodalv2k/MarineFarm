@@ -12,5 +12,7 @@ namespace MarineFarm.Models
         {
 
         }
+        public DbSet<Tank> Tank { get; set; }
+        public DbSet<Fish> Fish { get; set; }
     }
 }
