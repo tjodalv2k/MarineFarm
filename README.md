@@ -14,5 +14,5 @@
 ## Available endpoints
 |  Method | URI  | Description  | Parameter(s) |
 |---|---|---|---|
-| GET  | /api/tank  | Get all tanks  | eventType |
+| GET  | /api/tank  | Get all tanks  | - |
 | GET  | /api/tank/{id}  | Get the tank with the selected {id}  | - |
