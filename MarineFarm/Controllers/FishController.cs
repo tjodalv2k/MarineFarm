@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarineFarm.Models;
@@ -39,6 +37,18 @@ namespace MarineFarm.Controllers
             }
 
             return fish;
+        }
+
+        [HttpPut("{fishId}/{tankId}")]
+        public async Task<IActionResult> MoveFish(int fishId, int tankId)
+        {
+            var fish = await _context.Fish.FirstOrDefaultAsync(f => f.FishId == fishId);
+
+            fish.TankId = tankId;
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
 
         // PUT: api/Fish/5
