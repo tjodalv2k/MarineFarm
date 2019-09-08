@@ -13,6 +13,5 @@ namespace MarineFarm.Models
         [ForeignKey("Tank")]
         public int TankId { get; set; }
 
-
     }
 }
